@@ -13,32 +13,38 @@ namespace Minesweeper
             int mine = 0;
             bool flag = false;
             bool hide = true;
+         
+            
+            int rowCount;
+            Console.WriteLine("How many rows?: ");
+            rowCount = Convert.ToInt32(Console.ReadLine());
+
+            int columnCount;
+            Console.WriteLine("How many columns?: ");
+            columnCount = Convert.ToInt32(Console.ReadLine());
+
             int mineCount;
-            int rowCount=0;
-            int columnCount=0;
+            Console.WriteLine("How many mines?: ");
+            mineCount = Convert.ToInt32(Console.ReadLine());
+
 
             Block block = new Block(mine, flag, hide);
-
             
-            mineCount = 2;
-
-            rowCount = 20;
-
-            columnCount = 10;
-
-            Console.WriteLine("Just one block: " + block);
-
             Grid grid = new Grid(block, rowCount, columnCount);
             
             Console.WriteLine("\n A grid: \n \n"+ grid.ToString());
-
-
-            grid.MineIt(mineCount); //10 mines
+            
+            grid.MineIt(mineCount); 
 
             Console.WriteLine("\n Mines: " + mineCount 
                 +" \n Rows: " + rowCount
                 + " \n Columns: " + columnCount
                 + " \n" + grid.ToString());
+
+            grid.NumberIt();
+            Console.WriteLine("\n numbered grid: \n \n" + grid.ToString());
+
+            
 
         }
 
