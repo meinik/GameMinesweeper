@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Minesweeper
 {
-    class Block
+    public class Block
     {
 
         private int mine = 0; //number 9  is a bomb, 0-8 is for hints
@@ -22,8 +22,8 @@ namespace Minesweeper
         }
 
         public bool UnhideIt () {
-            // don't change because it could only set to visible, not back
-            return !Hidden; 
+            // don't change because it can only be set to visible, not back
+            return Hidden=false; 
         }
         
         public bool FlagIt ()

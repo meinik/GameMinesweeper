@@ -2,19 +2,28 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Media;
+
 
 namespace Minesweeper
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
+            //move later on 
+            using (SoundPlayer player = new SoundPlayer("C:\\OffLimits.wav"))
+            {
+                player.PlayLooping();
+            }
+
             int mine = 0;
             bool flag = false;
             bool hide = true;
-         
-            
+
             int rowCount;
             Console.WriteLine("How many rows?: ");
             rowCount = Convert.ToInt32(Console.ReadLine());
@@ -44,7 +53,8 @@ namespace Minesweeper
             grid.NumberIt();
             Console.WriteLine("\n numbered grid: \n \n" + grid.ToString());
 
-            
+            Console.WriteLine("Press any key to close");
+            Console.ReadLine();
 
         }
 

@@ -8,7 +8,7 @@ using System.Timers;
 namespace Minesweeper
 {
 
-    class Grid
+    public class Grid
     {
         private int MineNum { get; set; } // total number of mines
         private int Row { get; set; } // number of rows
@@ -88,7 +88,7 @@ namespace Minesweeper
                 }
                 if (i > 0 && j >= 0)
                 {
-                    if (theGrid[i - 1, j].Mine == 9) //not working
+                    if (theGrid[i - 1, j].Mine == 9) 
                     {
                         count++;
                     }
@@ -117,7 +117,7 @@ namespace Minesweeper
                 }
                 if (i < Row - 1 && j < Column)
                 {
-                    if (theGrid[i + 1, j].Mine == 9) //not working
+                    if (theGrid[i + 1, j].Mine == 9) 
                     {
                         count++;
                     }
@@ -150,19 +150,7 @@ namespace Minesweeper
                     CheckIt(i, j);   
                 }
             }
-
-        }
-        //Extra features
-        //The timer will be finished when I make the UI
-        public void Timer()
-        {
-            var watch = System.Diagnostics.Stopwatch.StartNew();
-
-       //I'll eventually add whatever I want to meaure
-            watch.Stop();
-            var totalTime = watch.ElapsedMilliseconds;
-        }
-
+        }       
     }
 }
 
