@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
+
 namespace Minesweeper
 {
 
@@ -175,9 +176,9 @@ namespace Minesweeper
         {
 
 
-          if (theGrid[i, j].Mine == 0 ) 
+          if (theGrid[i, j].Mine == 0)
           {
-            if (checkedCell[i, j] != true) 
+            if (checkedCell[i, j] != true)
             {
               count++;
             }
@@ -214,10 +215,10 @@ namespace Minesweeper
             {
               checkedCell[i + 1, j - 1] = true;
             }
-           
+
           }
 
-          else if (theGrid[i,j].Mine < 9 && theGrid[i, j].Mine > 0) //no seee
+          else if (theGrid[i, j].Mine < 9 && theGrid[i, j].Mine > 0) //no seee
           {
 
           }
@@ -248,4 +249,3 @@ namespace Minesweeper
   }
 
 }
-

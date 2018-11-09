@@ -39,7 +39,7 @@ namespace Minesweeper
 
             Block block = new Block(mine, flag, hide);
             
-            Grid grid = new Grid(block, rowCount, columnCount);
+            Gridy grid = new Gridy(block, rowCount, columnCount);
             
             Console.WriteLine("\n A grid: \n \n"+ grid.ToString());
             

@@ -22,9 +22,9 @@ namespace WpfApp1
   /// </summary>
   public partial class MainWindow : Window
   {
-    Minesweeper.Block blocky = new Minesweeper.Block();
+    Minesweeper.Block blocky = new Minesweeper.Block(0,false,true);
 
-    Gridy gridy;
+    Minesweeper.Gridy gridy;
     
     
     public MainWindow()
