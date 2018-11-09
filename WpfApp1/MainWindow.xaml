@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="#FF269AA5" >
+    <Grid x:Name="BigGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="columnsNumber" Grid.Row="0" Margin="0,26,684.6,9.8" Text="10"/>
+        <Label Grid.Row="0" Content="Columns" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="rowsNumber" Grid.Row="1" Margin="0,26,684.6,9.8"  Text="10" />
+        <Label Grid.Row="1" Content="Rows" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Mines" HorizontalAlignment="Left" Margin="143,0,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="minesNumber" HorizontalAlignment="Left" Height="23" Margin="143,26,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="120"/>
+        
+        <!-- this is the datagrid. dg_Loaded is where I put the array -->
+        <DataGrid x:Name="dg" 
+                  HorizontalAlignment="Left" 
+                  Height="260" Margin="94,14.4,0,-270.4" 
+                  Grid.Row="2" VerticalAlignment="Top" 
+                  Width="622" SelectionChanged="dg_SelectionChanged"
+                  Loaded="dg_Loaded"
+                  HeadersVisibility="None"
+                  />
+
+    </Grid>
+
+</Window>
