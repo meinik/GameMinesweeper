@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using System.Timers;
 namespace Minesweeper
 {
 
-  public class Gridy
+  public class Gridy : INotifyPropertyChanged
   {
     private int MineNum { get; set; } = 10;// total number of mines
     private int Row { get; set; } = 10;// number of rows
@@ -17,10 +18,13 @@ namespace Minesweeper
     private int Mines { get; set; } //values in the block
     private bool Flags { get; set; } = false;
     private bool Hiddens { get; set; } = true;
+    
 
 
     //the array
     public Block[,] theGrid;
+
+    public event PropertyChangedEventHandler PropertyChanged;
 
     public Gridy()
     {
@@ -42,6 +46,15 @@ namespace Minesweeper
         }
       }
     }
+
+    //method to create a new grid and fill it
+
+
+  
+
+
+
+
 
     // filling the field with mines
     public void MineIt(int counter)
@@ -246,6 +259,24 @@ namespace Minesweeper
 
     }
 
+    public int RemainingBombsCount()
+    {
+      int RemainingBombs  = 0;
+
+      for (int i = 0; i < Row; i++)
+      {
+        for (int j = 0; j < Column; j++)
+        {
+          if (theGrid[i, j].Flag == false && theGrid[i, j].Mine == 9)
+          {
+            RemainingBombs++;
+          }
+        }
+      }
+      return RemainingBombs;
+    }
+
   }
+
 
 }

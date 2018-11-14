@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Minesweeper;
 
 namespace Minesweeper
 {
 
     public class Game
-
     {
-      
-
-        //Extra features
-        //The timer will be finished when I make the UI
+   
+    //Extra features
+    //The timer will be finished when I make the UI
         public void TheTimer()
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
@@ -22,7 +21,4 @@ namespace Minesweeper
             var totalTime = watch.ElapsedMilliseconds;
         }
     }
-
-
-
 }

@@ -15,10 +15,7 @@ namespace Minesweeper
         static void Main(string[] args)
         {
             //move later on 
-            using (SoundPlayer player = new SoundPlayer("C:\\OffLimits.wav"))
-            {
-                player.PlayLooping();
-            }
+           
 
             int mine = 0;
             bool flag = false;

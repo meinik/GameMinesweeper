@@ -30,7 +30,7 @@ namespace MinesweeperUnitTest
             int columnCount = 5;
            
             Block block1 = new Block(mine, flag, hide);
-            Grid grid = new Grid(block1, rowCount, columnCount);
+            Gridy grid = new Gridy(block1, rowCount, columnCount);
             Assert.IsNotNull(grid);
         }
 
@@ -72,8 +72,8 @@ namespace MinesweeperUnitTest
             int column = 7;
 
             Block block1 = new Block(mine, flag, hide);
-            Grid grid1 = new Grid(block1, row, column);
-            Grid grid2 = new Grid(block1, row, column);
+            Gridy grid1 = new Gridy(block1, row, column);
+            Gridy grid2 = new Gridy(block1, row, column);
             Assert.AreNotSame(grid1, grid2);
         }
 
@@ -90,7 +90,7 @@ namespace MinesweeperUnitTest
             int mines = 4;
 
             Block block1 = new Block(mine, flag, hide);
-            Grid grid1 = new Grid(block1, row, column);
+            Gridy grid1 = new Gridy(block1, row, column);
 
             Assert.AreNotEqual(9, grid1.theGrid[0, 0].Mine);
 
@@ -110,7 +110,7 @@ namespace MinesweeperUnitTest
             int column = 3;
 
             Block block1 = new Block(mine, flag, hide);
-            Grid grid1 = new Grid(block1, row, column);
+            Gridy grid1 = new Gridy(block1, row, column);
 
             grid1.theGrid[0, 0].Mine = 9;
             grid1.theGrid[1, 1].Mine = 9;
@@ -121,5 +121,8 @@ namespace MinesweeperUnitTest
             Assert.AreEqual(grid1.theGrid[1, 2].Mine, 1);
             Assert.AreEqual(grid1.theGrid[0, 3].Mine, 0);
         }
+
+
+
     }
 }
