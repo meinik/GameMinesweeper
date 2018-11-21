@@ -97,6 +97,7 @@ namespace WpfApp1
       }
     }
 
+    //creates a new game and loaads the grid
     private void Load_Click(object sender, RoutedEventArgs e)
     {
       //creates new game
