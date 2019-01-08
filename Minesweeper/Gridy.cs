@@ -18,6 +18,8 @@ namespace Minesweeper
     private int Mines { get; set; } //values in the block
     private bool Flags { get; set; } = false;
     private bool Hiddens { get; set; } = true;
+   
+
     
 
 
@@ -105,6 +107,14 @@ namespace Minesweeper
             count++;
           }
         }
+
+        if (i >= 0 && j >= 0)
+        {
+          if (theGrid[i, j].Mine == 9)
+          {
+            count++;
+          }
+        }
         if (i > 0 && j >= 0)
         {
           if (theGrid[i - 1, j].Mine == 9)
@@ -115,6 +125,13 @@ namespace Minesweeper
         if (i >= 0 && j > 0)
         {
           if (theGrid[i, j - 1].Mine == 9)
+          {
+            count++;
+          }
+        }
+        if (i < Row && j < Column)
+        {
+          if (theGrid[i, j].Mine == 9)
           {
             count++;
           }
@@ -159,7 +176,7 @@ namespace Minesweeper
       }
     }
 
-    //uses the check it method to change the values of adjacent mines to each block
+    //uses the checkit method to change the values of adjacent mines to each block
     public void NumberIt()
     {
       for (int i = 0; i < Row; i++)
@@ -172,7 +189,7 @@ namespace Minesweeper
     }
 
 
-    //3BV calculation 
+    //3BV calculation  - not the best, but not the worst
     public int The3bv()
     {
       int i = 0;
@@ -187,7 +204,6 @@ namespace Minesweeper
       {
         for (j = 0; j < Column; j++)
         {
-
 
           if (theGrid[i, j].Mine == 0)
           {
@@ -233,7 +249,7 @@ namespace Minesweeper
 
           else if (theGrid[i, j].Mine < 9 && theGrid[i, j].Mine > 0) //no seee
           {
-
+            count++;
           }
         }
       }
@@ -261,7 +277,7 @@ namespace Minesweeper
 
     public int RemainingBombsCount()
     {
-      int RemainingBombs  = 0;
+      int RemainingBombs  = MineNum;
 
       for (int i = 0; i < Row; i++)
       {
@@ -269,11 +285,29 @@ namespace Minesweeper
         {
           if (theGrid[i, j].Flag == false && theGrid[i, j].Mine == 9)
           {
-            RemainingBombs++;
+            RemainingBombs--;
           }
         }
       }
       return RemainingBombs;
+    }
+
+    //iterate and find the flags 
+    //(because one of the requirements was to have negative bombcount so I'm gonna substract the flags from the total bomb count)
+    public int FlagCountIt()
+    {
+       int flagcount = 0;
+      for (int i = 0; i < Row; i++)
+      {
+        for (int j = 0; j < Column; j++)
+        {
+          if (theGrid[i, j].Flag == true)
+          {
+            flagcount++;
+          }
+        }
+      }
+      return flagcount;
     }
 
   }
